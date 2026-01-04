@@ -33,6 +33,10 @@
 
         $conexion = mysqli_connect(getenv('MYSQL_HOST'), getenv('MYSQL_USER'), getenv('MYSQL_PASSWORD'), "SG");
 
+        if (!$conexion) {
+          die("Error de conexión: " . mysqli_connect_error());
+        }
+
         $cadenaSQL = "select * from s_customer";
         $resultado = mysqli_query($conexion, $cadenaSQL);
 
